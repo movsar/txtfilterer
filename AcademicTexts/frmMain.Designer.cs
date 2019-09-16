@@ -42,6 +42,8 @@
             this.rdbExceptRef = new System.Windows.Forms.RadioButton();
             this.rdbExceptInput = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtRegexp = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,9 +81,9 @@
             // prgbMain
             // 
             this.prgbMain.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.prgbMain.Location = new System.Drawing.Point(0, 158);
+            this.prgbMain.Location = new System.Drawing.Point(0, 200);
             this.prgbMain.Name = "prgbMain";
-            this.prgbMain.Size = new System.Drawing.Size(355, 20);
+            this.prgbMain.Size = new System.Drawing.Size(351, 20);
             this.prgbMain.TabIndex = 7;
             // 
             // ofdMain
@@ -181,11 +183,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выбирает слова, которые встречаются:";
             // 
+            // txtRegexp
+            // 
+            this.txtRegexp.Location = new System.Drawing.Point(11, 174);
+            this.txtRegexp.Name = "txtRegexp";
+            this.txtRegexp.Size = new System.Drawing.Size(332, 20);
+            this.txtRegexp.TabIndex = 18;
+            this.txtRegexp.Text = "(\\w+-\\w+)|\\w+";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 157);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(291, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Регулярное выражение для выборки слов / выражений";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 178);
+            this.ClientSize = new System.Drawing.Size(351, 220);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtRegexp);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
@@ -221,6 +242,8 @@
         private System.Windows.Forms.RadioButton rdbExceptRef;
         private System.Windows.Forms.RadioButton rdbExceptInput;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtRegexp;
+        private System.Windows.Forms.Label label2;
     }
 }
 

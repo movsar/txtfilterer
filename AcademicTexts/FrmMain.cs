@@ -93,7 +93,7 @@ namespace TxtFilterer
             string Contents = File.Processor.GetAllText(FilePath);
 
             var words = new Dictionary<string, int>(StringComparer.CurrentCultureIgnoreCase);
-            var wordPattern = new Regex(@"\w+");
+            var wordPattern = new Regex(txtRegexp.Text);
             File.wordsCount = wordPattern.Matches(Contents).Count;
 
             // Check if exists
@@ -116,7 +116,7 @@ namespace TxtFilterer
             string Contents = File.Processor.GetAllText(FilePath);
 
             var words = new Dictionary<string, int>(StringComparer.CurrentCultureIgnoreCase);
-            var wordPattern = new Regex(@"\w+");
+            var wordPattern = new Regex(txtRegexp.Text);
             File.wordsCount = wordPattern.Matches(Contents).Count;
 
             // Check if exists
