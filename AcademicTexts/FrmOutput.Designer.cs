@@ -28,117 +28,145 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.olvOutput = new BrightIdeasSoftware.ObjectListView();
-            this.olvClmWord = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvClmIsItThere = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.lblInputFileName = new System.Windows.Forms.Label();
-            this.lblInputWordsCount = new System.Windows.Forms.Label();
+            this.lblFileB = new System.Windows.Forms.Label();
+            this.lblFileBWordsC = new System.Windows.Forms.Label();
+            this.lblFileBUniqueWordsC = new System.Windows.Forms.Label();
+            this.lblFileAUniqueWordsC = new System.Windows.Forms.Label();
+            this.lblFileAWordsC = new System.Windows.Forms.Label();
+            this.lblFileA = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
-            this.lblInputUniqueWordsCount = new System.Windows.Forms.Label();
-            this.lblRefWordsCount = new System.Windows.Forms.Label();
+            this.olvOutput = new BrightIdeasSoftware.ObjectListView();
+            this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn2 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumn3 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.olvOutput)).BeginInit();
             this.SuspendLayout();
             // 
-            // olvOutput
+            // lblFileB
             // 
-            this.olvOutput.AllColumns.Add(this.olvClmWord);
-            this.olvOutput.AllColumns.Add(this.olvClmIsItThere);
-            this.olvOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.olvOutput.CellEditUseWholeCell = false;
-            this.olvOutput.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.olvClmWord,
-            this.olvClmIsItThere});
-            this.olvOutput.Cursor = System.Windows.Forms.Cursors.Default;
-            this.olvOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.olvOutput.FullRowSelect = true;
-            this.olvOutput.GridLines = true;
-            this.olvOutput.Location = new System.Drawing.Point(0, 72);
-            this.olvOutput.Name = "olvOutput";
-            this.olvOutput.ShowGroups = false;
-            this.olvOutput.Size = new System.Drawing.Size(508, 455);
-            this.olvOutput.TabIndex = 15;
-            this.olvOutput.TintSortColumn = true;
-            this.olvOutput.UseAlternatingBackColors = true;
-            this.olvOutput.UseCompatibleStateImageBehavior = false;
-            this.olvOutput.UseExplorerTheme = true;
-            this.olvOutput.UseFilterIndicator = true;
-            this.olvOutput.UseFiltering = true;
-            this.olvOutput.View = System.Windows.Forms.View.Details;
+            this.lblFileB.AutoSize = true;
+            this.lblFileB.Location = new System.Drawing.Point(264, 10);
+            this.lblFileB.Name = "lblFileB";
+            this.lblFileB.Size = new System.Drawing.Size(52, 13);
+            this.lblFileB.TabIndex = 16;
+            this.lblFileB.Text = "Файл Б: ";
             // 
-            // olvClmWord
+            // lblFileBWordsC
             // 
-            this.olvClmWord.AspectName = "title";
-            this.olvClmWord.Groupable = false;
-            this.olvClmWord.Text = "Слово";
-            this.olvClmWord.Width = 273;
+            this.lblFileBWordsC.AutoSize = true;
+            this.lblFileBWordsC.Location = new System.Drawing.Point(264, 23);
+            this.lblFileBWordsC.Name = "lblFileBWordsC";
+            this.lblFileBWordsC.Size = new System.Drawing.Size(92, 13);
+            this.lblFileBWordsC.TabIndex = 17;
+            this.lblFileBWordsC.Text = "Слов в файле Б: ";
             // 
-            // olvClmIsItThere
+            // lblFileBUniqueWordsC
             // 
-            this.olvClmIsItThere.AspectName = "isPresentStr";
-            this.olvClmIsItThere.Groupable = false;
-            this.olvClmIsItThere.Text = "Присутствие в Эталонной БД";
-            this.olvClmIsItThere.Width = 215;
+            this.lblFileBUniqueWordsC.AutoSize = true;
+            this.lblFileBUniqueWordsC.Location = new System.Drawing.Point(264, 36);
+            this.lblFileBUniqueWordsC.Name = "lblFileBUniqueWordsC";
+            this.lblFileBUniqueWordsC.Size = new System.Drawing.Size(209, 13);
+            this.lblFileBUniqueWordsC.TabIndex = 19;
+            this.lblFileBUniqueWordsC.Text = "Уникальных слов во входном файле Б: ";
             // 
-            // lblInputFileName
+            // lblFileAUniqueWordsC
             // 
-            this.lblInputFileName.AutoSize = true;
-            this.lblInputFileName.Location = new System.Drawing.Point(1, 27);
-            this.lblInputFileName.Name = "lblInputFileName";
-            this.lblInputFileName.Size = new System.Drawing.Size(147, 13);
-            this.lblInputFileName.TabIndex = 16;
-            this.lblInputFileName.Text = "Название входного файла: ";
+            this.lblFileAUniqueWordsC.AutoSize = true;
+            this.lblFileAUniqueWordsC.Location = new System.Drawing.Point(1, 36);
+            this.lblFileAUniqueWordsC.Name = "lblFileAUniqueWordsC";
+            this.lblFileAUniqueWordsC.Size = new System.Drawing.Size(209, 13);
+            this.lblFileAUniqueWordsC.TabIndex = 23;
+            this.lblFileAUniqueWordsC.Text = "Уникальных слов во входном файле А: ";
             // 
-            // lblInputWordsCount
+            // lblFileAWordsC
             // 
-            this.lblInputWordsCount.AutoSize = true;
-            this.lblInputWordsCount.Location = new System.Drawing.Point(1, 40);
-            this.lblInputWordsCount.Name = "lblInputWordsCount";
-            this.lblInputWordsCount.Size = new System.Drawing.Size(134, 13);
-            this.lblInputWordsCount.TabIndex = 17;
-            this.lblInputWordsCount.Text = "Слов во входном файле: ";
+            this.lblFileAWordsC.AutoSize = true;
+            this.lblFileAWordsC.Location = new System.Drawing.Point(1, 23);
+            this.lblFileAWordsC.Name = "lblFileAWordsC";
+            this.lblFileAWordsC.Size = new System.Drawing.Size(92, 13);
+            this.lblFileAWordsC.TabIndex = 22;
+            this.lblFileAWordsC.Text = "Слов в файле А: ";
+            // 
+            // lblFileA
+            // 
+            this.lblFileA.AutoSize = true;
+            this.lblFileA.Location = new System.Drawing.Point(1, 10);
+            this.lblFileA.Name = "lblFileA";
+            this.lblFileA.Size = new System.Drawing.Size(52, 13);
+            this.lblFileA.TabIndex = 21;
+            this.lblFileA.Text = "Файл А: ";
             // 
             // btnExport
             // 
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.Location = new System.Drawing.Point(431, 43);
+            this.btnExport.Location = new System.Drawing.Point(442, 390);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.Size = new System.Drawing.Size(88, 24);
             this.btnExport.TabIndex = 18;
             this.btnExport.Text = "Экспорт";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // lblInputUniqueWordsCount
+            // olvOutput
             // 
-            this.lblInputUniqueWordsCount.AutoSize = true;
-            this.lblInputUniqueWordsCount.Location = new System.Drawing.Point(1, 53);
-            this.lblInputUniqueWordsCount.Name = "lblInputUniqueWordsCount";
-            this.lblInputUniqueWordsCount.Size = new System.Drawing.Size(193, 13);
-            this.lblInputUniqueWordsCount.TabIndex = 19;
-            this.lblInputUniqueWordsCount.Text = "Уникальных слов во входном файле";
+            this.olvOutput.AllColumns.Add(this.olvColumn1);
+            this.olvOutput.AllColumns.Add(this.olvColumn2);
+            this.olvOutput.AllColumns.Add(this.olvColumn3);
+            this.olvOutput.CellEditUseWholeCell = false;
+            this.olvOutput.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.olvColumn1,
+            this.olvColumn2,
+            this.olvColumn3});
+            this.olvOutput.Cursor = System.Windows.Forms.Cursors.Default;
+            this.olvOutput.FullRowSelect = true;
+            this.olvOutput.GridLines = true;
+            this.olvOutput.HideSelection = false;
+            this.olvOutput.Location = new System.Drawing.Point(3, 54);
+            this.olvOutput.Name = "olvOutput";
+            this.olvOutput.ShowGroups = false;
+            this.olvOutput.Size = new System.Drawing.Size(526, 335);
+            this.olvOutput.TabIndex = 24;
+            this.olvOutput.TintSortColumn = true;
+            this.olvOutput.UseCompatibleStateImageBehavior = false;
+            this.olvOutput.UseExplorerTheme = true;
+            this.olvOutput.View = System.Windows.Forms.View.Details;
             // 
-            // lblRefWordsCount
+            // olvColumn1
             // 
-            this.lblRefWordsCount.AutoSize = true;
-            this.lblRefWordsCount.Location = new System.Drawing.Point(1, 2);
-            this.lblRefWordsCount.Name = "lblRefWordsCount";
-            this.lblRefWordsCount.Size = new System.Drawing.Size(123, 13);
-            this.lblRefWordsCount.TabIndex = 20;
-            this.lblRefWordsCount.Text = "Слов в Эталонной БД: ";
+            this.olvColumn1.AspectName = "title";
+            this.olvColumn1.Groupable = false;
+            this.olvColumn1.Text = "Слово";
+            this.olvColumn1.Width = 350;
+            // 
+            // olvColumn2
+            // 
+            this.olvColumn2.AspectName = "InA";
+            this.olvColumn2.Groupable = false;
+            this.olvColumn2.Sortable = false;
+            this.olvColumn2.Text = "В файле А";
+            this.olvColumn2.Width = 80;
+            // 
+            // olvColumn3
+            // 
+            this.olvColumn3.AspectName = "InB";
+            this.olvColumn3.Groupable = false;
+            this.olvColumn3.Sortable = false;
+            this.olvColumn3.Text = "В файле Б";
+            this.olvColumn3.Width = 80;
             // 
             // FrmOutput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 527);
-            this.Controls.Add(this.lblRefWordsCount);
-            this.Controls.Add(this.lblInputUniqueWordsCount);
-            this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.lblInputWordsCount);
-            this.Controls.Add(this.lblInputFileName);
+            this.ClientSize = new System.Drawing.Size(531, 415);
             this.Controls.Add(this.olvOutput);
+            this.Controls.Add(this.lblFileAUniqueWordsC);
+            this.Controls.Add(this.lblFileAWordsC);
+            this.Controls.Add(this.lblFileA);
+            this.Controls.Add(this.lblFileBUniqueWordsC);
+            this.Controls.Add(this.btnExport);
+            this.Controls.Add(this.lblFileBWordsC);
+            this.Controls.Add(this.lblFileB);
             this.Name = "FrmOutput";
             this.Text = "Просмотр результата проверки";
             this.Load += new System.EventHandler(this.FrmOutput_Load);
@@ -149,14 +177,16 @@
         }
 
         #endregion
-
-        private BrightIdeasSoftware.ObjectListView olvOutput;
-        private BrightIdeasSoftware.OLVColumn olvClmWord;
-        private BrightIdeasSoftware.OLVColumn olvClmIsItThere;
-        private System.Windows.Forms.Label lblInputFileName;
-        private System.Windows.Forms.Label lblInputWordsCount;
+        private System.Windows.Forms.Label lblFileB;
+        private System.Windows.Forms.Label lblFileBWordsC;
+        private System.Windows.Forms.Label lblFileBUniqueWordsC;
+        private System.Windows.Forms.Label lblFileAUniqueWordsC;
+        private System.Windows.Forms.Label lblFileAWordsC;
+        private System.Windows.Forms.Label lblFileA;
         private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Label lblInputUniqueWordsCount;
-        private System.Windows.Forms.Label lblRefWordsCount;
+        private BrightIdeasSoftware.ObjectListView olvOutput;
+        private BrightIdeasSoftware.OLVColumn olvColumn1;
+        private BrightIdeasSoftware.OLVColumn olvColumn2;
+        private BrightIdeasSoftware.OLVColumn olvColumn3;
     }
 }

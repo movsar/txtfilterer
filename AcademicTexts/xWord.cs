@@ -3,17 +3,23 @@
     public class xWord
     {
         public string title;
-        public bool isPresent;
-        public xWord(string t, bool i)
+        private bool inA;
+        private bool inB;
+
+        public string InA()
         {
-            title = t;
-            isPresent = i;
+            return inA == true ? "Да" : "Нет";
+        }
+        public string InB()
+        {
+            return inB == true ? "Да" : "Нет";
         }
 
-        public string isPresentStr()
+        public xWord(string title, bool inA, bool inB)
         {
-            return isPresent == true ? "Да" : "Нет";
+            this.title = title;
+            this.inA = inA;
+            this.inB = inB;
         }
-
     }
 }

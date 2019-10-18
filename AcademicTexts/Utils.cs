@@ -195,20 +195,10 @@ namespace TxtFilterer
            
             tbl.Sort(1, false);
             sl.InsertTable(tbl);
+            string filePath = Path.GetDirectoryName(Application.ExecutablePath) + "\\" + defaultName + ".xlsx";
 
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog()
-            {
-                Filter = "XLS Format|*.xlsx",
-                FileName = defaultName + " " + ".xlsx",
-                Title = "Экспорт ... "
-            };
-
-            DialogResult dResult = saveFileDialog1.ShowDialog();
-            if (dResult == DialogResult.OK)
-            {
-                sl.SaveAs(saveFileDialog1.FileName);
-                Process.Start(saveFileDialog1.FileName);
-            }
+            sl.SaveAs(filePath);
+            Process.Start(filePath);
         }
     }
 }

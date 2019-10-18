@@ -33,8 +33,8 @@
             this.btnBrowseRef = new System.Windows.Forms.Button();
             this.prgbMain = new System.Windows.Forms.ProgressBar();
             this.ofdMain = new System.Windows.Forms.OpenFileDialog();
-            this.txtInput = new System.Windows.Forms.TextBox();
-            this.txtRef = new System.Windows.Forms.TextBox();
+            this.txtFileB = new System.Windows.Forms.TextBox();
+            this.txtFileA = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -91,23 +91,23 @@
             this.ofdMain.Filter = "Text files | *.txt; *.docx; *.doc; *.xls; *.xlsx; *.odt; *.pdf; *.htm; *.html";
             this.ofdMain.RestoreDirectory = true;
             // 
-            // txtInput
+            // txtFileB
             // 
-            this.txtInput.Location = new System.Drawing.Point(11, 34);
-            this.txtInput.Name = "txtInput";
-            this.txtInput.ReadOnly = true;
-            this.txtInput.Size = new System.Drawing.Size(248, 20);
-            this.txtInput.TabIndex = 8;
-            this.txtInput.Text = "Файл B";
+            this.txtFileB.Location = new System.Drawing.Point(11, 34);
+            this.txtFileB.Name = "txtFileB";
+            this.txtFileB.ReadOnly = true;
+            this.txtFileB.Size = new System.Drawing.Size(248, 20);
+            this.txtFileB.TabIndex = 8;
+            this.txtFileB.Text = "Файл B";
             // 
-            // txtRef
+            // txtFileA
             // 
-            this.txtRef.Location = new System.Drawing.Point(11, 8);
-            this.txtRef.Name = "txtRef";
-            this.txtRef.ReadOnly = true;
-            this.txtRef.Size = new System.Drawing.Size(248, 20);
-            this.txtRef.TabIndex = 9;
-            this.txtRef.Text = "Файл A";
+            this.txtFileA.Location = new System.Drawing.Point(11, 8);
+            this.txtFileA.Name = "txtFileA";
+            this.txtFileA.ReadOnly = true;
+            this.txtFileA.Size = new System.Drawing.Size(248, 20);
+            this.txtFileA.TabIndex = 9;
+            this.txtFileA.Text = "Файл A";
             // 
             // backgroundWorker1
             // 
@@ -210,8 +210,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.txtRef);
-            this.Controls.Add(this.txtInput);
+            this.Controls.Add(this.txtFileA);
+            this.Controls.Add(this.txtFileB);
             this.Controls.Add(this.prgbMain);
             this.Controls.Add(this.btnBrowseRef);
             this.Controls.Add(this.btnBrowseInput);
@@ -233,8 +233,8 @@
         private System.Windows.Forms.Button btnBrowseRef;
         private System.Windows.Forms.ProgressBar prgbMain;
         private System.Windows.Forms.OpenFileDialog ofdMain;
-        private System.Windows.Forms.TextBox txtInput;
-        private System.Windows.Forms.TextBox txtRef;
+        private System.Windows.Forms.TextBox txtFileB;
+        private System.Windows.Forms.TextBox txtFileA;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;

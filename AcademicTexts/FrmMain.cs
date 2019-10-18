@@ -63,10 +63,12 @@ namespace TxtFilterer
         {
             string etalonFilePath = "etalon.txt";
             using (StreamReader sr = new StreamReader(etalonFilePath, true))
-            using (StreamWriter swOut = new StreamWriter("etalon-clean.txt", false, Encoding.UTF8)) {
+            using (StreamWriter swOut = new StreamWriter("etalon-clean.txt", false, Encoding.UTF8))
+            {
                 String line = sr.ReadLine();
                 int i = 0;
-                while (line != null) {
+                while (line != null)
+                {
                     swOut.WriteLine(Replacer(line).ToLower());
                     Debug.WriteLine(++i + " / " + 1720205);
 
@@ -85,22 +87,25 @@ namespace TxtFilterer
         private HashSet<string> references = new HashSet<string>();
         private HashSet<string> inputs = new HashSet<string>();
 
+        private xTextFile fileA;
+        private xTextFile fileB;
 
         private void getReferences()
         {
-            string FilePath = txtRef.Text;
-            xTextFile File = new xTextFile(FilePath);
-            string Contents = File.Processor.GetAllText(FilePath);
+            string FilePath = txtFileA.Text;
+            fileA = new xTextFile(FilePath);
+            string Contents = fileA.Processor.GetAllText(FilePath);
 
             var words = new Dictionary<string, int>(StringComparer.CurrentCultureIgnoreCase);
             var wordPattern = new Regex(txtRegexp.Text);
-            File.wordsCount = wordPattern.Matches(Contents).Count;
+            fileA.wordsCount = wordPattern.Matches(Contents).Count;
 
             // Check if exists
 
             int progress = 0;
             references = new HashSet<string>();
-            foreach (Match match in wordPattern.Matches(Contents)) {
+            foreach (Match match in wordPattern.Matches(Contents))
+            {
                 progress++;
                 int currentCount = 0;
                 words.TryGetValue(match.Value, out currentCount);
@@ -108,22 +113,24 @@ namespace TxtFilterer
                 words[match.Value] = currentCount;
                 references.Add(Replacer(match.Value.ToLower()));
             }
+            fileA.uniqueWordsCount = references.Count();
         }
         private void getInuts()
         {
-            string FilePath = txtInput.Text;
-            xTextFile File = new xTextFile(FilePath);
-            string Contents = File.Processor.GetAllText(FilePath);
+            string FilePath = txtFileB.Text;
+            fileB = new xTextFile(FilePath);
+            string Contents = fileB.Processor.GetAllText(FilePath);
 
             var words = new Dictionary<string, int>(StringComparer.CurrentCultureIgnoreCase);
             var wordPattern = new Regex(txtRegexp.Text);
-            File.wordsCount = wordPattern.Matches(Contents).Count;
+            fileB.wordsCount = wordPattern.Matches(Contents).Count;
 
             // Check if exists
 
             int progress = 0;
             inputs = new HashSet<string>();
-            foreach (Match match in wordPattern.Matches(Contents)) {
+            foreach (Match match in wordPattern.Matches(Contents))
+            {
                 progress++;
                 int currentCount = 0;
                 words.TryGetValue(match.Value, out currentCount);
@@ -131,32 +138,39 @@ namespace TxtFilterer
                 words[match.Value] = currentCount;
                 inputs.Add(Replacer(match.Value.ToLower()));
             }
+            fileB.uniqueWordsCount = inputs.Count();
         }
+
+        List<xWord> words;
 
         public void DoWork()
         {
             // do the comparision
             var watch = Stopwatch.StartNew();
-            HashSet<string> result = new HashSet<string>();
+            words = new List<xWord>();
 
             if (rdbIntersect.Checked)
-                result = new HashSet<string>(references.Intersect(inputs));
+            {
+                foreach (var word in new HashSet<string>(references.Intersect(inputs)))
+                {
+                    words.Add(new xWord(word, true, true));
+                }
+            }
             else if (rdbExceptRef.Checked)
-                result = new HashSet<string>(inputs.Except(references));
+            {
+                foreach (var word in new HashSet<string>(inputs.Except(references)))
+                {
+                    words.Add(new xWord(word, false, true));
+                }
+            }
             else if (rdbExceptInput.Checked)
-                result = new HashSet<string>(references.Except(inputs));
+            {
+                foreach (var word in new HashSet<string>(references.Except(inputs)))
+                {
+                    words.Add(new xWord(word, true, false));
+                }
+            }
 
-            Directory.CreateDirectory("TxtFilterer-"+Utils.GetCurrentDateTime());
-
-            string outFileName = currentDirectory + "\\" + "TxtFilterer-" + Utils.GetCurrentDateTime() + "\\" + "result.txt";
-            string outInfoFileName = currentDirectory + "\\" + "TxtFilterer-" + Utils.GetCurrentDateTime() + "\\" + "info.txt";
-
-            File.WriteAllLines(outFileName, result, Encoding.UTF8);
-            File.WriteAllText(outInfoFileName, string.Format("Файл A:{0}\r\nФайл B:{1}\r\nРабота выполнена в течении:{2}мсек.", txtRef.Text, txtInput.Text, watch.ElapsedMilliseconds));
-
-            Process.Start("TxtFilterer-" + Utils.GetCurrentDateTime());
-            // TODO: change name to TxtFilterer-YYYY.MM.DD-HH.MM,
-            // TODO: add an info file 
             watch.Stop();
         }
 
@@ -171,17 +185,20 @@ namespace TxtFilterer
 
         private void btnBrowseRef_Click(object sender, EventArgs e)
         {
-            if (ofdMain.ShowDialog() == DialogResult.OK) {
+            if (ofdMain.ShowDialog() == DialogResult.OK)
+            {
 
-                txtRef.Text = ofdMain.FileName;
-                if (txtRef.Text.Contains("\\") && txtInput.Text.Contains("\\")) btnGo.Enabled = true;
+                txtFileA.Text = ofdMain.FileName;
+                if (txtFileA.Text.Contains("\\") && txtFileB.Text.Contains("\\")) btnGo.Enabled = true;
             }
         }
 
         private void btnGo_Click(object sender, EventArgs e)
         {
+            this.Enabled = false;
             prgbMain.Value = 0;
-            switch (comboBox1.Text) {
+            switch (comboBox1.Text)
+            {
                 case "UTF8":
                     Utils.StgSet("TxtCodepage", 0);
                     break;
@@ -210,16 +227,19 @@ namespace TxtFilterer
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            //FrmOutput frmOutPut = new FrmOutput(inputFile, references.Count);
-            //frmOutPut.Show();
+            this.Enabled = true;
+
+            FrmOutput frmOutput = new FrmOutput(words, fileA, fileB);
+            frmOutput.ShowDialog();
         }
 
 
         private void btnBrowseInput_Click(object sender, EventArgs e)
         {
-            if (ofdMain.ShowDialog() == DialogResult.OK) {
-                txtInput.Text = ofdMain.FileName;
-                if (txtRef.Text.Contains("\\") && txtInput.Text.Contains("\\")) btnGo.Enabled = true;
+            if (ofdMain.ShowDialog() == DialogResult.OK)
+            {
+                txtFileB.Text = ofdMain.FileName;
+                if (txtFileA.Text.Contains("\\") && txtFileB.Text.Contains("\\")) btnGo.Enabled = true;
             }
         }
 
